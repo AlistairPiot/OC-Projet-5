@@ -23,20 +23,10 @@ const slides = [
 const arrowLeft = document.querySelector(".arrow_left");
 const arrowRight = document.querySelector(".arrow_right");
 
-arrowLeft.addEventListener("click", function () {
-    console.log("Clic sur la flèche gauche");
-    // Le code pour passer à la diapositive précédente
-});
-
-arrowRight.addEventListener("click", function () {
-    console.log("Clic sur la flèche droite");
-    // Le code pour passer à la diapositive suivante
-});
-
 // Etapes 3 : Ajoutez des bullet points au slider
 const dotsContainer = document.querySelector(".dots");
 
-// Création des bullet pointse fonction du nombre d'images dans le tableau slides
+// Création des bullet points en fonction du nombre d'images dans le tableau slides
 for (let i = 0; i < slides.length; i++) {
     const dot = document.createElement("span");
     dot.classList.add("dot");
@@ -46,3 +36,41 @@ for (let i = 0; i < slides.length; i++) {
 // Surbrillance du premier point
 const dots = document.querySelectorAll(".dot");
 dots[0].classList.add("dot_selected");
+
+// Etapes 4 + 5 : Ajoutez des bullet points au slider + défilement infini
+let currentSlideIndex = 0; // Variable pour suivre l'index de la diapositive actuelle
+
+function updateSlide(index) {
+    // Mise à jour de l'image
+    const bannerImage = document.getElementById("banner1");
+    bannerImage.src = `./assets/images/slideshow/${slides[index].image}`;
+
+    // Mise à jour du text
+    const tagLine = document
+        .getElementById("banner")
+        .getElementsByTagName("p")[0];
+    tagLine.innerHTML = slides[index].tagLine;
+
+    // Mettre à jour le point actif
+    dots.forEach((dot) => dot.classList.remove("dot_selected"));
+    dots[index].classList.add("dot_selected");
+}
+
+arrowLeft.addEventListener("click", function () {
+    //étape 3
+    console.log("Clic sur la flèche gauche");
+    if (currentSlideIndex > 0) {
+        currentSlideIndex = currentSlideIndex - 1;
+        updateSlide(currentSlideIndex);
+    }
+    updateSlide(currentSlideIndex);
+});
+
+arrowRight.addEventListener("click", function () {
+    //étape 3
+    console.log("Clic sur la flèche droite");
+    if (currentSlideIndex < slides.length - 1) {
+        currentSlideIndex = currentSlideIndex + 1;
+    }
+    updateSlide(currentSlideIndex);
+});
