@@ -19,15 +19,30 @@ const slides = [
     },
 ];
 
+// Etapes 2 :  Ajoutez des Event Listeners sur les flèches
 const arrowLeft = document.querySelector(".arrow_left");
 const arrowRight = document.querySelector(".arrow_right");
 
 arrowLeft.addEventListener("click", function () {
     console.log("Clic sur la flèche gauche");
-    // Ajoutez ici le code pour passer à la diapositive précédente
+    // Le code pour passer à la diapositive précédente
 });
 
 arrowRight.addEventListener("click", function () {
     console.log("Clic sur la flèche droite");
-    // Ajoutez ici le code pour passer à la diapositive suivante
+    // Le code pour passer à la diapositive suivante
 });
+
+// Etapes 3 : Ajoutez des bullet points au slider
+const dotsContainer = document.querySelector(".dots");
+
+// Création des bullet pointse fonction du nombre d'images dans le tableau slides
+for (let i = 0; i < slides.length; i++) {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    dotsContainer.appendChild(dot);
+}
+
+// Surbrillance du premier point
+const dots = document.querySelectorAll(".dot");
+dots[0].classList.add("dot_selected");
