@@ -63,6 +63,11 @@ arrowLeft.addEventListener("click", function () {
         currentSlideIndex = currentSlideIndex - 1;
         updateSlide(currentSlideIndex);
     }
+    // Etape 5
+    else {
+        // Sinon : passer à la dernière page
+        currentSlideIndex = slides.length - 1;
+    }
     updateSlide(currentSlideIndex);
 });
 
@@ -71,6 +76,11 @@ arrowRight.addEventListener("click", function () {
     console.log("Clic sur la flèche droite");
     if (currentSlideIndex < slides.length - 1) {
         currentSlideIndex = currentSlideIndex + 1;
+    }
+    // Etape 5
+    else {
+        // Sinon, passez à la première page
+        currentSlideIndex = 0;
     }
     updateSlide(currentSlideIndex);
 });
