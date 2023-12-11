@@ -43,7 +43,7 @@ let currentSlideIndex = 0; // Variable pour suivre l'index de la diapositive act
 function updateSlide(index) {
     // Mise à jour de l'image
     const bannerImage = document.getElementById("banner1");
-    bannerImage.src = `../PRINT-IT-JS/assets/images/slideshow/${slides[index].image}`;
+    bannerImage.src = `./assets/images/slideshow/${slides[index].image}`;
 
     // Mise à jour du text
     const tagLine = document
