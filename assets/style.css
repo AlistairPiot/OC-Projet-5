@@ -210,7 +210,7 @@ header {
 }
 #banner .arrow_left {
     position: absolute;
-    align-items: center;
+    left: 10px;
 }
 #banner .arrow_right {
     position: absolute;
