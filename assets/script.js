@@ -61,7 +61,6 @@ arrowLeft.addEventListener("click", function () {
     console.log("Clic sur la flèche gauche");
     if (currentSlideIndex > 0) {
         currentSlideIndex = currentSlideIndex - 1;
-        updateSlide(currentSlideIndex);
     }
     // Etape 5
     else {
